@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import "./TryAgain.scss";
+import '../TryAgain/TryAgain.css'
 
 const TryAgain = (props) => {
   const [showPopup, setShowPopup] = useState(false);

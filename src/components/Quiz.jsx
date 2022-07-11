@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {fetchData} from "../helpers/fetchData";
+import { fetchData } from "../helpers/fetchData";
 import { useNavigate } from "react-router-dom";
 import { Rings } from "react-loader-spinner";
 import { Progress } from "reactstrap";
@@ -9,27 +9,19 @@ import { Boolean } from "./QuestionTypes/Boolean/Boolean";
 import { Multiple } from "./QuestionTypes/Multiple/Multiple";
 import { Single } from "./QuestionTypes/Single/Single";
 import TryAgain from "./TryAgain/TryAgain";
-import {
-  setDataWithExpiry,
-  getDataWithExpiry,
-} from "../Utilities/Api";
+import { setDataWithExpiry, getDataWithExpiry } from "../Utilities/Api";
 
-const Quiz = () => {	
+const Quiz = () => {
   const [data, setData] = useState({ questions: [], answers: [] });
   const [currentQuestionId, setCurrentQuestionId] = useState(0);
   const [score, setScore] = useState(0);
- const tempData = fetchData()
- console.log(tempData)
 
   const navigate = useNavigate();
   const goHomePage = () => {
     navigate("/");
   };
 
-
-
-
-    const handleNext = () => {
+  const handleNext = () => {
     setCurrentQuestionId(currentQuestionId + 1);
   };
 
@@ -37,33 +29,29 @@ const Quiz = () => {
     setScore(newScore);
   };
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const tempData = await fetchData();
-  //     setDataWithExpiry("data", tempData, 500000);
-  //     setData({
-  //       questions: getDataWithExpiry("data").questions,
-  //       answers: getDataWithExpiry("data").answers,
-  //     });
-  //   };
-  //   getDataWithExpiry("data")
-  //     ? setData({
-  //         questions: getDataWithExpiry("data").questions,
-  //         answers: getDataWithExpiry("data").answers,
-  //       })
-  //     : getData();
-  // }, []);
+  useEffect(() => {
+    const getData = async () => {
+      const tempData = await fetchData();
+      setDataWithExpiry("data", tempData, 500000);
+      setData({
+        questions: getDataWithExpiry("data").questions,
+        answers: getDataWithExpiry("data").answers
+      });
+    };
+    getDataWithExpiry("data")
+      ? setData({
+          questions: getDataWithExpiry("data").questions,
+          answers: getDataWithExpiry("data").answers
+        })
+      : getData();
+  }, []);
 
   const { questions, answers } = data;
 
-	
-	 return !questions.length ? (
+  return !questions.length ? (
     <div className="app">
-
       <Rings color="#FFB03B" height={150} width={150} />
     </div>
-
-
   ) : (
     <div className="page">
       {currentQuestionId < questions.length ? (
@@ -112,12 +100,11 @@ const Quiz = () => {
         </Progress>
       </div>
 
-
       <button className="button-home" onClick={goHomePage}>
         Go Home
       </button>
     </div>
   );
-}
+};
 
 export default Quiz;
