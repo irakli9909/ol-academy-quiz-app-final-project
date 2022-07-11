@@ -1,0 +1,15 @@
+  h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
+    padding: 20px 0px;
+  }
+  table {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+.active{
+  background-color: grey;
+  color: white;
+}
