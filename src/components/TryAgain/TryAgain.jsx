@@ -61,14 +61,16 @@ const TryAgain = (props) => {
 
   return (
     <div className="buttons-wrapper">
-      <div className="btn-link">
+      <div className="history-btn">
+      <div>
         <button onClick={openPopup}>Try Again</button>
       </div>
       <Link to="/history" className="btn-link">
-        <button className="btn-history" onClick={saveAttempt}>
+        <button onClick={saveAttempt}>
           HISTORY
         </button>
       </Link>
+      </div>
       {showPopup && (
         <div
           style={{
