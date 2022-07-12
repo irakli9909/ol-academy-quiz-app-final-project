@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ContextMenu from "../ContextMenu/ContextMenu";
 import "./History.css";
 
@@ -37,13 +37,14 @@ const History = () => {
     const tmpAttempts = JSON.parse(localStorage.getItem("attempts") || []);
     setAttempts(tmpAttempts);
   }, []);
+  const navigate = useNavigate();
+  const goHomePage = () => {navigate('/')}
 
   return (
     <div className="page">
-      <div className="history-table">
-        <h2>ATTEMPTS HISTORY</h2>
-
-        <table className="">
+      <div>
+        <h1>ATTEMPTS HISTORY</h1>
+        <table>
           <thead>
             <tr>
               <th>RANK</th>
@@ -80,10 +81,8 @@ const History = () => {
           ></ContextMenu>
         )}
       </div>
-      <div className="button-2">
-        <Link to="/" className="">
-          <button>Back to Home</button>
-        </Link>
+      <div>
+      <button className="button-home" onClick={goHomePage}>Home</button>
       </div>
     </div>
   );

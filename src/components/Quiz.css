@@ -84,8 +84,6 @@ button:focus{
   border-radius: 15px;
   text-align: center;
 }
-
-/* ANSWERS/RIGHT SECTION */
 .answer-section {
   width: 100%;
   display: flex;
