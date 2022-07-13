@@ -46,6 +46,7 @@ button{
   font-size: 1.1rem;
   font-family: inherit;
   padding: 1.3rem;
+  border-radius:3px
 }
 button:hover{
   background-color: #04adc4;

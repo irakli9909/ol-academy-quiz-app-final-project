@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Rings } from "react-loader-spinner";
 import { Progress } from "reactstrap";
 
 import { Boolean } from "./QuestionTypes/Boolean/Boolean";
 import { Multiple } from "./QuestionTypes/Multiple/Multiple";
 import { Single } from "./QuestionTypes/Single/Single";
-import TryAgain from "./TryAgain/TryAgain";
+import TryAgain from "../TryAgain/TryAgain";
 
-import { setDataWithExpiry, getDataWithExpiry } from "../Utilities/Api";
-import { fetchData } from "../helpers/fetchData";
-import { useNavigate } from "react-router-dom";
+import { setDataWithExpiry, getDataWithExpiry } from '../../Utilities/Api'
+import { fetchData } from "../../helpers/fetchData";
 import "./Quiz.css";
 
 const Quiz = () => {
@@ -33,7 +33,7 @@ const Quiz = () => {
   useEffect(() => {
     const getData = async () => {
       const tempData = await fetchData();
-      setDataWithExpiry("data", tempData, 500000);
+      setDataWithExpiry( 'data', tempData, 500000);
       setData({
         questions: getDataWithExpiry("data").questions,
         answers: getDataWithExpiry("data").answers
