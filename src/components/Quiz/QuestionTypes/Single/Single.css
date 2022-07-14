@@ -37,9 +37,11 @@
 .active{
   background-color: grey;
   color: white;
+  border-radius: 5px;
 }
 
 .wrong {
           background-color: red;
-          border-color: rebeccapurple
+          border-color: rebeccapurple;
+          border-radius: 5px;
         }
