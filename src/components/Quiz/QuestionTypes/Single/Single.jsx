@@ -42,7 +42,6 @@ export const Single = (props) => {
               }
               onClick={() => selectAnswer(index)}
             >
-
               <span>{option}</span>
             </div>
           ))}

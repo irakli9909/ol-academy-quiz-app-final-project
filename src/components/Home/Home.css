@@ -5,6 +5,13 @@ body{
     
     
 }
+.title-text{
+  margin-top: -40%;
+ font-size: 4rem;
+ font-weight: bold;
+ color: #023e8a;
+ line-height: 1em;
+}
 
 .button-items{
     position: absolute;
@@ -39,9 +46,12 @@ body{
 }
 
 .button-history{
-  margin-top: 200px;
-  margin-left: 270px;
-    
+position: absolute;
+transform:translate(460%, 650%);
+
+  top: 6px;
+  left: 6px;
+  align-items: center;
   background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#048993);
   border: 0;
   border-radius: 8px;
@@ -62,7 +72,6 @@ body{
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
-  transform:translate(-50%,-50%)
 }
 
 @media (min-width: 768px) {
