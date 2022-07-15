@@ -39,6 +39,7 @@ th {
 .active {
   background-color: grey;
   color: white;
+  border-radius: 5px;
 }
 
 .button-home {

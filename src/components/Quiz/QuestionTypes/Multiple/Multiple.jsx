@@ -8,15 +8,15 @@ export const Multiple = (props) => {
   const selectAnswer = (id) => {
     if (!confirm) {
       if (selected.includes(id + 1)) {
-        let tmp = [...selected];
-        let index = tmp.indexOf(id + 1);
+        let tmpSelectedArray = [...selected];
+        let index = tmpSelectedArray.indexOf(id + 1);
         if (index !== -1) {
-          tmp.splice(index, 1);
+          tmpSelectedArray.splice(index, 1);
         }
-        setSelected(tmp);
+        setSelected(tmpSelectedArray);
       } else {
-        const tmp = [...selected, id + 1];
-        setSelected(tmp);
+        const tmpSelectedArray = [...selected, id + 1];
+        setSelected(tmpSelectedArray);
       }
     }
   };

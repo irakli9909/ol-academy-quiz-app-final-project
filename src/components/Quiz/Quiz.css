@@ -1,44 +1,49 @@
-.container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-}
+
 .progress-bar-container {
   width: 100%;
-  background-color: #2f922f;
-  text-align: center;
+  text-align: end;
+  
+
 }
 
-
+.progress-bar.bg-warning {
+  background-color: #ffbe0b;
+}
+.app svg {
+  stroke: #FFB03B;
+  height: 150px;
+  width: 150px;
+}
 .score-container {
   text-align: center;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+
+
+
 body {
-  background-color: #7cc6fe;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  
 }
 
 .page {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  background-color: #033958;
+  background-image: linear-gradient(160deg, #0589d5 0%, #65b7ae 100%);
+  border: dashed;
+border-width: 2px 4px;
+border-radius: 40px;
     width: 600px;
     overflow: hidden;
 }
 
 button{
-  background-color: #03cae4;
+  background-color: #0f727f;
   color: #fff;
   border: none;
   display: block;
@@ -46,14 +51,10 @@ button{
   font-size: 1.1rem;
   font-family: inherit;
   padding: 1.3rem;
-  border-radius:3px
+  border-radius: 15px
 }
 button:hover{
   background-color: #04adc4;
-}
-button:focus{
-  outline: none;
-  background-color: #44b927;
 }
 
 
@@ -74,22 +75,6 @@ button:focus{
 
 .question-text {
   margin-bottom: 12px;
-}
-
-.timer-text {
-  background: rgb(230, 153, 12);
-  padding: 15px;
-  margin-top: 20px;
-  margin-right: 20px;
-  border: 5px solid rgb(255, 189, 67);
-  border-radius: 15px;
-  text-align: center;
-}
-.answer-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .correct {

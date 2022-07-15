@@ -7,6 +7,9 @@ function Home() {
   const enterHistory = () => {navigate('/History')}
   return (
     <div>
+      <div>
+        <p>Test yourself in the Quiz</p>
+      </div>
       <button className="button-items" onClick={enterQuiz}>
         Start Quiz
       </button>

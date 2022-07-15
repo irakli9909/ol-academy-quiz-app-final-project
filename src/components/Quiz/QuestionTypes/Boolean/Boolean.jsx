@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const Boolean = (props) => {
+export const Boolean = ({answer, newScore, score, onClick, question }) => {
   const [isCorrect, setIsCorrect] = useState(null);
   const [selected, setSelected] = useState(null);
   const [confirm, setConfirm] = useState(false);
@@ -13,16 +13,16 @@ export const Boolean = (props) => {
 
   const handleConfirm = () => {
     setConfirm(true);
-    if (selected === props.answer.answer) {
+    if (selected === answer.answer) {
       setIsCorrect(true);
-      props.newScore(props.score + 1);
+      newScore(score + 1);
     } else setIsCorrect(false);
   };
 
   return (
     <div className="question-container">
       <div className="question-content">
-        <h3>{props.question.question}</h3>
+        <h3>{question.question}</h3>
 
         <div className="answer-options">
           <div
@@ -60,7 +60,7 @@ export const Boolean = (props) => {
       {!confirm && selected !== null && (
         <button onClick={() => handleConfirm()}>Confirm</button>
       )}
-      {confirm && <button onClick={() => props.onClick()}>Next</button>}
+      {confirm && <button onClick={() => onClick()}>Next</button>}
     </div>
   );
 };

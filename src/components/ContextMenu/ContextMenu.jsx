@@ -18,7 +18,7 @@ const ContextMenu = (props) => {
     return () => {
       window.removeEventListener("click", hideContextMenu);
     };
-  });
+  },[props]);
 
   return (
     <div

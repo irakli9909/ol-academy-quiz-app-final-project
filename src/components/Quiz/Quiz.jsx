@@ -8,8 +8,8 @@ import { Multiple } from "./QuestionTypes/Multiple/Multiple";
 import { Single } from "./QuestionTypes/Single/Single";
 import TryAgain from "../TryAgain/TryAgain";
 
-import { setDataWithExpiry, getDataWithExpiry } from '../../Utilities/Api'
-import { fetchData } from "../../helpers/fetchData";
+import { setDataWithExpiry, getDataWithExpiry } from "../../Utilities/Api";
+import  useFetchData  from "../../helpers/useFetchData";
 import "./Quiz.css";
 
 const Quiz = () => {
@@ -29,29 +29,34 @@ const Quiz = () => {
   const handleSettingScore = (newScore) => {
     setScore(newScore);
   };
+  const fetchData = useFetchData()
 
   useEffect(() => {
     const getData = async () => {
-      const tempData = await fetchData();
-      setDataWithExpiry( 'data', tempData, 500000);
+      setDataWithExpiry('data', fetchData, 500000);
       setData({
         questions: getDataWithExpiry("data").questions,
-        answers: getDataWithExpiry("data").answers
+        answers: getDataWithExpiry("data").answers,
       });
     };
-    getDataWithExpiry("data")
-      ? setData({
-          questions: getDataWithExpiry("data").questions,
-          answers: getDataWithExpiry("data").answers
-        })
-      : getData();
-  }, []);
+
+    const dataWithExpiry = getDataWithExpiry("data");
+
+    if(dataWithExpiry) {
+      setData({
+        questions: getDataWithExpiry("data").questions,
+        answers: getDataWithExpiry("data").answers,
+      });
+    } else {
+      getData();
+    }
+  }, [fetchData]);
 
   const { questions, answers } = data;
 
   return !questions.length ? (
     <div className="app">
-      <Rings color="#FFB03B" height={150} width={150} />
+      <Rings />
     </div>
   ) : (
     <div className="page">
